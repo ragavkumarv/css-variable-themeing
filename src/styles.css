@@ -1,0 +1,65 @@
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+/* CSS - Custom Variables */
+
+:root {
+  --article-hs: 250 30%;
+  /* --article-bg: hsl(250 30% 90%); */
+  --article-br: 10px;
+  --article-header-pd: 8px;
+  --l-0: 0%;
+  --l-40: 40%;
+  --l-90: 90%;
+  --l-95: 95%;
+  --l-100: 100%;
+}
+
+/* Dark mode & Light mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --l-0: 100%;
+    --l-40: 60%;
+    --l-90: 10%;
+    --l-95: 15%;
+    --l-100: 0%;
+  }
+}
+
+body {
+  background: hsl(0 0% var(--l-95, 80%));
+  color: hsl(0 0% var(--l-0));
+}
+
+article {
+  background: hsl(var(--article-hs) var(--l-90));
+  border-radius: var(--article-br);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+article h2 {
+  background: hsl(var(--article-hs) var(--l-40));
+  /* Math calculation - Change in one place & reflect everywhere */
+  padding: var(--article-header-pd) calc(var(--article-header-pd) * 2);
+  margin: 0;
+  color: hsl(0 0% var(--l-100));
+}
+
+article .content {
+  padding: 0px 16px;
+}
+
+/* Creating variants */
+.style-1 {
+  --article-hs: 190 40%;
+}
+
+.style-2 {
+  --article-hs: 0 40%;
+}
+
+.style-3 {
+  --article-hs: 315 30%;
+}
